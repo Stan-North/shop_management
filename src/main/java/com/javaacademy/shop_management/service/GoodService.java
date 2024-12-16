@@ -1,7 +1,7 @@
 package com.javaacademy.shop_management.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.javaacademy.shop_management.confilg.HttpClient;
+import com.javaacademy.shop_management.util.HttpClient;
 import com.javaacademy.shop_management.dto.UpdateGoodPriceDto;
 import lombok.RequiredArgsConstructor;
 import okhttp3.Request;
