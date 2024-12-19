@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,10 +34,10 @@ public class ShopController {
                     @Content(mediaType = "application.json",
                             array = @ArraySchema(schema = @Schema(implementation = ShopDto.class)))
             })
-    public List<ShopDto> getShopStatuses() throws IOException {
+    public ResponseEntity<?> getShopStatuses() throws IOException {
         List<ShopDto> list = new ArrayList<>();
         list.add(shopService.makeRequest(URL_FIRST));
         list.add(shopService.makeRequest(URL_SECOND));
-        return list;
+        return ResponseEntity.ok(list);
     }
 }
